@@ -1,7 +1,7 @@
 body {
   padding: 0; margin: 0;
   font-family: serif;
-  background-image: url("http://daradara.kyoto.jp/attachments/164/cotton-f.png");
+  background-image: url("http://hiyokomanjiu.github.io/nanairobox/img/cotton-f.png");
 }
 
 #mainContainer {
@@ -61,7 +61,7 @@ body {
 #footer {
   color: white;
   clear : both;
-  background-image: url("http://daradara.kyoto.jp/attachments/163/bg_craftpaper01.jpg");
+  background-image: url("http://hiyokomanjiu.github.io/nanairobox/img/bg_craftpaper01.jpg");
   margin-top: 7rem;
   box-shadow: 0rem 0.5rem 5rem 1.2rem #603020;
 }
