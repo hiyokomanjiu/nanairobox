@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{Title}</title>
+    <link rel="stylesheet" type="text/css" href="https://www.github.com/hiyokomanjiu/nanairobox/css/main.css" />
+  </head>
+  <body>
+    <!-- トップページ -->
+    {block:IndexPage}
+    <div id="mainContainer">
+      <div id="title">
+        <h1>{Title}</h1>
+        <img src="http://daradara.kyoto.jp/attachments/165/top.jpg" width="100%" />
+      </div>
+        
+      <ul id="menu">
+        <li><a href="/">home.</a></li>
+        <li class="underconstruction">lab.</li>
+        <li class="underconstruction">works.</li>
+        <li class="underconstruction">link.</li>
+        <ul id="link">
+        </ul>
+      </ul>
+      
+      <div id="portfolio">
+        <h2>portfolio</h2>
+        {block:Posts}
+        {block:Photo}
+        
+        <div class="thumb">
+          <div class="photo">
+            <a href="{Permalink}">
+              <img src="{PhotoURL-400}" alt="{Photo-Alt}"/>
+            </a>
+          </div>
+          {block:Caption}
+          <div class="captionText">
+            {Caption}
+          </div>
+          {/block:Caption}
+        </div>
+        
+        {/block:Photo}
+        {/block:Posts}
+      </div><!-- /portfolio -->
+      
+      <!-- ページャ -->
+      {block:Pagination}
+      <div id="pager">
+        {block:PreviousPage}
+        <a href="{PreviousPage}">&lt;%lt; Previous</a> |
+        {/block:PreviousPage}
+        {block:NextPage}
+        | <a href="{NextPage}">Next &gt;&gt;</a>
+        {/block:NextPage}
+      </div><!-- /pager -->
+      {/block:Pagination}
+    </div><!-- /mainContainer -->
+    {/block:IndexPage}
+    <!-- /トップページ -->
+    
+    <!-- 個別ページ -->
+    {block:PermalinkPage}
+    <div id="mainContainer">
+      <div id="header">
+        <h1><a href="/">{Title}</a></h1>
+      </div><!-- /header -->
+      <div id="sidebar">
+      </div>
+      {block:Posts}
+
+      <!-- 1点イラスト -->
+      {block:Photo}
+      <article class="postPhoto">
+        <div class="photoImage">
+          {LinkOpenTag}
+          <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+          {LinkCloseTag}
+        </div><!-- /photoImage -->
+        
+        <!-- イラストの情報 -->
+        <div class="photoData">
+          {block:Caption}
+          <div class="captionText">
+            {Caption}
+          </div>
+          {/block:Caption}
+          
+          <hr />
+                
+          <!-- メタ情報 -->
+          <div class="metaInfo">
+            {block:Date}
+            <div class="date">{Year}/{Month}/{DayOfMonth}</div>
+            {/block:Date}
+            
+            {block:HasTags}
+            <ul id="tags">
+              {block:Tags}
+              <li><a href="{TagURL}">{Tag}</a></li>
+              {/block:Tags}
+            </ul><!-- /tags -->
+            {/block:HasTags}
+              
+            <hr />
+
+            <!-- Tumblr用ボタン -->
+            <ul id="tumblrButtons">
+              <li>{ReblogButton}</li>
+              <li>{LikeButton}</li>
+            </ul><!-- /tumblrButtons -->
+            
+            <hr />
+            
+            {block:NoteCount}
+            <div class="noteCount">
+              {NoteCount} Notes
+            </div>
+            {/block:NoteCount}
+            
+            {block:PostNotes}
+            <div class="noteContainer">
+              {PostNotes}
+            </div>
+            {/block:PostNotes}
+          </div><!-- /metaInfo -->
+        </div><!-- photoData -->
+      </article>
+      {/block:Photo}
+      <!-- /1点イラスト -->
+      
+      <!-- 複数イラスト -->
+      {block:Photoset}
+      <article class="postPhoto">
+      </article>
+      {/block:Photoset}
+      <!-- /複数イラスト -->
+      
+      <!--固定ページ-->
+      {block:Text}
+      <article class="PageContent">
+        {block:Title}
+        <h2 class="entry-title"><a href="{Permalink}" class="permalink">{Title}</a></h2>
+        {/block:Title}
+        <div class="entryBody">
+          {Body}
+        </div><!-- entryBody -->
+      </article>
+      {/block:Text}
+      <!-- /固定ページ -->
+      {/block:Posts}
+      
+      <!-- ページネーション -->
+      {block:PermalinkPagination}
+      <div id="pager">
+        {block:PreviousPost}
+        <a href="{PreviousPost}" class="previous">Previous</a>
+        {/block:PreviousPost}
+        {block:NextPost}
+        <a href="{NextPost}" class="next">Next</a>
+        {/block:NextPost}
+      </div>
+      {/block:PermalinkPagination}
+      <!-- ページネーション -->
+      
+    </div><!-- /mainContainer -->
+    {/block:PermalinkPage}
+    <!-- /個別ページ -->
+    
+    <div id="footer">
+        <div id="footerContents">
+            <div id="site-info">
+                <h1>{Title}</h1>
+                <p>{Description}</p>
+            </div><!-- /site-info -->
+            <table id="profile">
+                <tr><td rowspan="4"><img src="{PortraitURL-16}" alt="portrait" /></td><td>Name</td><td>hiyokomanjiu</td></tr>
+                <tr><td rowspan="2">e-Mail</td><td>hiyokomanjiu★gmail.com</td></tr>
+                <tr><td><p>(※★を@に置き換えてください)</p></td></tr>
+                <tr><td>twitter</td><td>@hiyokomanjiu</td></tr>
+            </table><!-- /profile -->
+            <div id="copyright">
+                &copy;{CopyrightYears} {Title} All rights reserved.
+            </div><!-- /copyright -->
+        </div><!-- /footerContents -->
+    </div>
+  </body>
+</html>
