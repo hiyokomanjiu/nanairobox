@@ -24,12 +24,15 @@ body {
   font-family: sans-serif;
   text-shadow: 0rem 0rem 0.5rem cyan;
 }
-#title img {
-  margin-top: -5rem;
+.topImage {
   position: relative;
+  margin-top: -5rem;
   z-index: 1;
+  height : 400px;
+  background-size: 100% auto;
   border-radius: 1rem;
   border: 1px solid lightgrey;
+  display: none;
 }
 
 #portfolio {

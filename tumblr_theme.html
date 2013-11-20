@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>{Title}</title>
     <link rel="stylesheet" type="text/css" href="http://hiyokomanjiu.github.io/nanairobox/css/main.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://hiyokomanjiu.github.io/nanairobox/js/top.js"></script>
   </head>
   <body>
     <!-- トップページ -->
@@ -11,7 +13,11 @@
     <div id="mainContainer">
       <div id="title">
         <h1>{Title}</h1>
-        <img src="http://hiyokomanjiu.github.io/nanairobox/img/top.jpg" width="100%" />
+        {block:Posts}
+        {block:Photo}
+        <div class="topImage" style="background-image: url('{PhotoURL-HighRes}');"></div>
+        {block:Photo}
+        {block:Posts}
       </div>
         
       <ul id="menu">
