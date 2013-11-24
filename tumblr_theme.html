@@ -2,6 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Custom Text -->
+    <meta name="text:Your Name" content=""/>
+    <meta name="text:Email Address" content=""/>
+    <meta name="text:Flickr Username" content=""/>
+    <meta name="text:Twitter Username" content=""/>
+    <meta name="text:Facebook Username" content=""/>
+    <meta name="text:Google+ Username" content=""/>
+    <meta name="text:Google Analytics Tracking ID" content=""/>
+
     <title>{Title}</title>
     <link rel="stylesheet" type="text/css" href="http://hiyokomanjiu.github.io/nanairobox/css/main.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -181,15 +191,47 @@
                 <p>{Description}</p>
             </div><!-- /site-info -->
             <table id="profile">
-                <tr><td rowspan="4"><img src="{PortraitURL-16}" alt="portrait" /></td><td>Name</td><td>hiyokomanjiu</td></tr>
-                <tr><td rowspan="2">e-Mail</td><td>hiyokomanjiu★gmail.com</td></tr>
-                <tr><td><p>(※★を@に置き換えてください)</p></td></tr>
-                <tr><td>twitter</td><td>@hiyokomanjiu</td></tr>
+                <tr><td rowspan="4">
+                  <img src="{PortraitURL-64}" alt="portrait" /></td>
+                  <td>Name</td><td>{block:IfYourName}{text:Your Name}{/block:IfYourName}</td>
+                </tr>
+                <!-- mail address -->
+                {block:IfEmailAddress}
+                <tr><td>e-Mail</td><td>{text:Email Address}</td></tr>
+                {/block:IfEmailAddress}
+                <!-- Flicker -->
+                {block:IfFlickerUsername}
+                <tr><td>Flicker</td><td>{text:Flicker Username}</td></tr>
+                {/block:IfFlickerUsername}
+                <!-- Twitter -->
+                {block:IfTwitterUsername}
+                <tr><td>Twitter</td><td>{text:Twitter Username}</td></tr>
+                {/block:IfTwitterUsername}
+                <!-- Facebook -->
+                {block:IfFacebookUsername}
+                <tr><td>Facebook</td><td>{text:Facebook Username}</td></tr>
+                {/block:IfFacebookUsername}
+                <!-- Google+ -->
+                {block:IfGooglePlusUsername}
+                <tr><td>Google+</td><td>{text:Google Plus Username}</td></tr>
+                {/block:IfGooglePlusUsername}
             </table><!-- /profile -->
             <div id="copyright">
                 &copy;{CopyrightYears} {Title} All rights reserved.
             </div><!-- /copyright -->
         </div><!-- /footerContents -->
     </div>
+
+    {block:IfGoogleAnalyticsTrackingID}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', {text:Google Analytics Tracking ID}, 'tumblr.com');
+      ga('send', 'pageview');
+    </script>
+    {/block:IfGoogleAnalytics}
   </body>
 </html>
