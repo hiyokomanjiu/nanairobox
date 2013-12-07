@@ -212,9 +212,9 @@
                 <tr><td>Facebook</td><td>{text:Facebook Username}</td></tr>
                 {/block:IfFacebookUsername}
                 <!-- Google+ -->
-                {block:IfGooglePlusUsername}
+                {block:IfGoogle+Username}
                 <tr><td>Google+</td><td>{text:Google Plus Username}</td></tr>
-                {/block:IfGooglePlusUsername}
+                {/block:IfGoogle+Username}
             </table><!-- /profile -->
             <div id="copyright">
                 &copy;{CopyrightYears} {Title} All rights reserved.
@@ -232,6 +232,6 @@
       ga('create', {text:Google Analytics Tracking ID}, 'tumblr.com');
       ga('send', 'pageview');
     </script>
-    {/block:IfGoogleAnalytics}
+    {/block:IfGoogleAnalyticsTrackingID}
   </body>
 </html>
